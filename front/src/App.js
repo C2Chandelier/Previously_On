@@ -14,7 +14,6 @@ export default class App extends Component {
           <Route exact path="/home" element={<Home />}></Route>;
         </Routes>
       </Router>
-    );
+    )
   }
 }
-
