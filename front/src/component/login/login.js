@@ -8,7 +8,7 @@ import { Md5 } from 'ts-md5';
 export default function Login() {
 
     const [login, setLogin] = useState("")
-    const [password, setPassword] = useState("")
+    const [password, setPassword] = useState("diGH_*EE44ec8T4")
     const [error, setError] = useState(null);
     const navigate = useNavigate()
 
