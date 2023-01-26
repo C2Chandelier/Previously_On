@@ -1,0 +1,16 @@
+.resultSearch {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+}
+.resultSearch button {
+    margin: 5px;
+    padding: 5px;
+}
+
+#archive {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 53px;
+    padding-top: 53px;
+}
