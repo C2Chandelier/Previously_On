@@ -70,6 +70,7 @@ export default function Home() {
             <th>Total</th>
             <th>Reste :</th>
             <th>Archiver</th>
+            <th>VoirAll</th>
           </tr>
         </thead>
         <tbody>
@@ -79,10 +80,12 @@ export default function Home() {
                 <tr key={item.id}>
                   <th className="text-center"><Link to={"/serie/" + item.id} state={{ data: item.id }}><img src={item.images.box} alt="bannière"></img></Link></th>
                   <th>{item.title}</th>
-                  <td>{item.user.next.code}</td>
+                  <td><Link to={"/episode/"+item.user.next.id} state={{data : item.user.next.id, image: item.user.next.image}}>{item.user.next.code}</Link></td>
                   <td>{item.seasons} saisons, {item.episodes} episodes</td>
                   <td>{item.user.status}%  | {item.user.remaining} ép.</td>
                   <button id="archive" value={item.id} onClick={(e) => archiver(e)}>&#10007;</button>
+                  <td><Link to={"/saison"} state={{state : item.id}}>&#10007;</Link></td>
+                  
                 </tr>
                 : null
             ))
