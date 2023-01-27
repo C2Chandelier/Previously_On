@@ -56,7 +56,6 @@ export default function Home() {
       })
   }
 
-  console.log(data)
 
   return (
     <div>
@@ -70,7 +69,7 @@ export default function Home() {
             <th>Total</th>
             <th>Reste :</th>
             <th>Archiver</th>
-            <th>VoirAll</th>
+            <th>Tout voir</th>
           </tr>
         </thead>
         <tbody>
@@ -78,13 +77,13 @@ export default function Home() {
             data.map((item) => (
               item.user.archived === false ?
                 <tr key={item.id}>
-                  <th className="text-center"><Link to={"/serie/" + item.id} state={{ data: item.id }}><img src={item.images.box} alt="bannière"></img></Link></th>
-                  <th>{item.title}</th>
-                  <td><Link to={"/episode/"+item.user.next.id} state={{data : item.user.next.id, image: item.user.next.image}}>{item.user.next.code}</Link></td>
+                  <td className="text-center"><Link to={"/serie/" + item.id} state={{ data: item.id }}><img src={item.images.box} alt="bannière"></img></Link></td>
+                  <td>{item.title}</td>
+                  <td><Link to={"/episode/"+item.user.next.id} state={{data : item.user.next.id}}>{item.user.next.code}</Link></td>
                   <td>{item.seasons} saisons, {item.episodes} episodes</td>
                   <td>{item.user.status}%  | {item.user.remaining} ép.</td>
                   <button id="archive" value={item.id} onClick={(e) => archiver(e)}>&#10007;</button>
-                  <td><Link to={"/saison"} state={{state : item.id}}>&#10007;</Link></td>
+                  <td className="text-center align-middle"><Link to={"/saison"} state={{state : item.id}}>&dArr;</Link></td>
                   
                 </tr>
                 : null
@@ -109,8 +108,8 @@ export default function Home() {
             data.map((item) => (
               item.user.archived === true ?
                 <tr key={item.id}>
-                  <th className="text-center"><Link to={"/serie/" + item.id} state={{ data: item.id }}><img src={item.images.box} alt="bannière"></img></Link></th>
-                  <th>{item.title}</th>
+                  <td className="text-center"><Link to={"/serie/" + item.id} state={{ data: item.id }}><img src={item.images.box} alt="bannière"></img></Link></td>
+                  <td>{item.title}</td>
                   <td>{item.seasons} saisons, {item.episodes} episodes</td>
                   <button id="archive" value={item.id} onClick={(e) => supprimer(e)}>&#10007;</button>
                 </tr>

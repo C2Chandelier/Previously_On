@@ -14,7 +14,6 @@ export default function Login() {
 
     useEffect(() => {
         if (error !== null) {
-            console.log(error)
             setLogin("")
             setPassword("")
             alert("identifiants incorrect")
@@ -27,7 +26,6 @@ export default function Login() {
         const passMD5 = Md5.hashStr(password)
         axios.post("https://api.betaseries.com/members/auth?login=" + login + "&password=" + passMD5 + "&client_id=91a576165315")
             .then((res) => {
-                console.log(res)
                 if (res.data.token !== undefined) {
                     setError(null)
                     localStorage.setItem("token", res.data.token)
