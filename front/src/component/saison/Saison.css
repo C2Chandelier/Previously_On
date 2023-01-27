@@ -1,0 +1,6 @@
+.name{
+    visibility: hidden; 
+}
+.visible{
+    visibility: visible;
+}
