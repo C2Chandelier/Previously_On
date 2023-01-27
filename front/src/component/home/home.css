@@ -14,3 +14,11 @@
     padding-bottom: 53px;
     padding-top: 53px;
 }
+
+td a {
+    color: white;
+    text-decoration: none;
+}
+td a:hover {
+    color: blue;
+}

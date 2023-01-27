@@ -25,7 +25,6 @@ export default function Serie() {
         genres.splice(length)
     }
 
-    console.log(genres)
     return (
         <div>
             {infos !== null ?
