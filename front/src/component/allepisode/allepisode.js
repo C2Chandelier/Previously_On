@@ -17,12 +17,13 @@ export default function Allepisode() {
             setEpisodedelasaison(res.data.episodes)
         })
     },[refresh]);
-    
+    console.log(episodedelasaison)
    function vu(e){
    let  id_ep = e.target.value
+   console.log(id_ep)
    axios.post("https://api.betaseries.com/episodes/watched?client_id=8e5e3832e2c7&token=87c53f44167d&id="+id_ep)
    .then((res)=>{
-
+        
        setRefresh(refresh +1)
     })
    }
