@@ -4,14 +4,41 @@ import { useEffect, useState } from "react";
 import { useNavigate ,Link, useLocation} from 'react-router-dom';
 
 export default function Episode() {
-    const params = useLocation();
-    console.log("PARAMASS",params.state.state.code)
+    const ep_id = useLocation().state.data;
+    const image = useLocation().state.image;
+    const [infos, setInfos] = useState(null)
+
+    useEffect(()=>{
+        axios.get("https://api.betaseries.com/episodes/display?client_id=91a576165315&id="+ep_id)
+            .then((res)=>{
+                setInfos(res.data.episode)
+            })
+    },[])
+    console.log(image)
+    console.log(infos)
     return(
         <div>
-            <img src={params.state.state.image}></img>
-            <p>{params.state.state.code}</p>
-            <p>{params.state.state.title}</p>
-            <Link to={"/home"}>Retour</Link>
+            {infos !== null ?
+                <div className="Single_product">
+                    <div className="img_product">
+                         <img
+                            src={image}
+                            alt={infos.title}
+                        />
+                    </div>
+                    <div className="product">
+                        <hr className="col-md-12"></hr>
+                        <div className='product_code'>{infos.code}</div>
+                        <div className="product_date">Diffusé le : {infos.date}</div>
+                        <div className="product_note">note : {infos.note.mean.toFixed(1)}/5</div>
+                    </div>
+                    <div className="product_desc">
+                    <div className="product_title"><h2>{infos.title}</h2></div>
+                        <h3>Description :</h3>
+                        <p>{infos.description}</p>
+                    </div>
+                </div>
+                : null}
         </div>
     )
 }
