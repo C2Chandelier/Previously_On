@@ -17,7 +17,7 @@ export default class App extends Component {
           <Route exact path="/" element={<Login />}></Route>;
           <Route exact path="/home" element={<Home />}></Route>;
           <Route exact path="/serie/:id" element={<Serie />}></Route>;
-          <Route exact path="/episode" element={<Episode />}></Route>;
+          <Route exact path="/episode/:id" element={<Episode />}></Route>;
           <Route exact path="/saison" element={<Saison />}></Route>;
           <Route exact path="/allepisode" element={<Allepisode />}></Route>;
         </Routes>
