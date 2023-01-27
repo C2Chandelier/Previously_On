@@ -5,17 +5,22 @@ import { useNavigate ,Link, useLocation} from 'react-router-dom';
 
 export default function Episode() {
     const ep_id = useLocation().state.data;
-    const image = useLocation().state.image;
     const [infos, setInfos] = useState(null)
+    const [image, setImage] = useState(null)
 
     useEffect(()=>{
+        axios.get("https://api.betaseries.com/pictures/episodes?client_id=91a576165315&id="+ep_id)
+            .then((resp)=>{
+                console.log(resp.data)
+                setImage(resp.config.url)
+            })
         axios.get("https://api.betaseries.com/episodes/display?client_id=91a576165315&id="+ep_id)
             .then((res)=>{
                 setInfos(res.data.episode)
             })
     },[])
-    console.log(image)
-    console.log(infos)
+
+
     return(
         <div>
             {infos !== null ?
