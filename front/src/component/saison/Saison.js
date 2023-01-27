@@ -66,8 +66,9 @@ export default function Saison() {
                                                         </div>
                                                         :
                                                         <div className='d-flex'>
-                                                            <li key={value.id}> {value.code} {value.title}</li>
-                                                            <button value={value.id} onClick={(e) => vu(e)}>VU </button>
+                                                            <li key={value.id}>
+                                                            <Link to={"/episode/" + value.id} state={{ data: value.id }}>{value.code} {value.title}</Link></li>
+                                                            <button value={value.id} onClick={(e) => vu(e)}>VU</button>
                                                         </div>
                                                     : null
                                             ))}

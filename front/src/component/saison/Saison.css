@@ -115,7 +115,7 @@ select{
     border-bottom: none;
   }
   
-  .dropdown-menu ul li:hover {
+  .dropdown-menu ul li a:hover {
     background: #333;
     color: #fff;
   }

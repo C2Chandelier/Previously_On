@@ -18,7 +18,12 @@
 td a {
     color: white;
     text-decoration: none;
+    padding-top: 53px;
+    padding-bottom: 53px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 td a:hover {
     color: blue;
 }
+
